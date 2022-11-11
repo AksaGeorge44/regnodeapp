@@ -20,6 +20,9 @@ catch(error)
 }
 
 })
+process.on('uncaughtException',function(err){
+    console.log(err);
+});
 app.get('/',(req,res)=>
 {
     res.send("welcome all")
@@ -31,7 +34,7 @@ app.post('/read',(req,res)=>
         (error)=>{
             if(error)
             {
-                res.send(error)
+                res.send("error"+error)
             }
             else
             {
